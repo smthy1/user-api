@@ -5,21 +5,21 @@ A user management API built with Express and PostgreSQL, fully package with Dock
 
 ## 📦 Features
 
-    - 📝 Register user
+   - 📝 Register user
 
-    - 🔐 User login
+   - 🔐 User login
 
-    - ✏️ Update username
+   - ✏️ Update username
 
-    - 🔄 Change password
+   - 🔄 Change password
 
-    - 🗑️ Delete user
+   - 🗑️ Delete user
 
-    - 🔒 Password encryption with bcrypt
+   - 🔒 Password encryption with bcrypt
 
-    - 🚫 Rate limiting to prevent brute-force
+   - 🚫 Rate limiting to prevent brute-force
 
-    - 🧪 Format validation of username, password and email fields
+   - 🧪 Format validation of username, password and email fields
 
 
 ## ⚙️ Technologies used
