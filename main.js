@@ -1,15 +1,20 @@
+import 'dotenv/config';
 import express from 'express';
 import { createUser, login, updateUsername, deleteUser, updatePassword } from './crud.js';
 import validator from 'validator';
 import rateLimit from 'express-rate-limit';
 import { createUsersTable } from './database.js';
+import jwt from 'jsonwebtoken';
+import client from './database.js';
+
+const secret = process.env.JWT_SECRET;
 
 await createUsersTable();
 
 const app = express();
 app.use(express.json());
 
-
+//anti-brute force
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000,
     limit: 15,
@@ -62,10 +67,27 @@ app.post('/login', limiter, async (req, res) => {
     }
 
     try {
-        const isLogged = await login(username, password);
+        const confirmUser = await login(username, password);
 
-        if (isLogged === true) {
-            return res.status(200).json({ msg: `Logado como ${username}` });
+        if (confirmUser === true) {
+            //get data
+            const query = `
+                SELECT * FROM users
+                WHERE username = $1
+            `;
+            //search email
+            const queryResult = await client.query(query, [username]);
+            const userEmail = queryResult.rows[0].email;
+            
+            //generate token
+            const token = jwt.sign(
+                {
+                    username: username,
+                    email: userEmail
+                }, secret, { expiresIn: '1h' }
+            );
+
+            return res.status(200).json({ msg: `Logado como ${username}`, token: token });
         } else {
             return res.status(401).json({ msg: "Usuário ou senha inválidos." });
         }
@@ -102,7 +124,7 @@ app.post('/update-username', async (req, res) => {
 });
 
 
-app.post('/delete-user', async (req, res) => {
+app.delete('/delete-user', async (req, res) => {
     const { username, password } = req.body;
     try {
         if (!username || !password) {
