@@ -32,6 +32,8 @@ A user management API built with Express and PostgreSQL, fully package with Dock
 
    - Docker
 
+   - JWT - jsonwebtoken
+
    - bcrypt
 
    - express-rate-limit
@@ -104,6 +106,8 @@ Wait a few seconds for Docker build and start the containers, then you're ready 
 
    - 🔐 Encrypting passwords with bcrypt
 
+   - 🔐 Authentication with JWT (JSON Web Token)
+
    - 🛡️ Rate limiting with express-rate-limit
 
    - 🤖 Implement format validation of username, password and email fields
@@ -156,6 +160,8 @@ API de gerenciamento de cadastro de usuários feito com Express, PostreSQL e emp
    - PostgreSQL
 
    - Docker
+
+   - JWT - jsonwebtoken
 
    - bcrypt
 
@@ -230,6 +236,8 @@ Aguarde alguns segundos até o Docker gerar e iniciar os containers, depois diss
    - ✅ Criação de API com Express.js
 
    - 🔐 Encriptar senhas com bcrypt
+
+   - 🔐 Autenticação com JWT (JSON Web Token)
 
    - 🛡️ Prevenção de brute force com express-rate-limit
 
