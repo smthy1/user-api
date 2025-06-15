@@ -19,7 +19,7 @@ A user management API built with Express and PostgreSQL, fully package with Dock
 
     - 🚫 Rate limiting to prevent brute-force
 
-   -  Format validation of username, password and email fields
+    - 🧪 Format validation of username, password and email fields
 
 
 ## ⚙️ Technologies used
@@ -148,7 +148,7 @@ API de gerenciamento de cadastro de usuários feito com Express, PostreSQL e emp
 
    - 🚫 Prevenção de brute force com Express rate limit
 
-   - 🤖 Validação dos formatos dos campos de usuário, senha e e-mail
+   - 🧪 Validação dos formatos dos campos de usuário, senha e e-mail
 
 
 ## ⚙️ Tecnologias utilizadas
